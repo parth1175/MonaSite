@@ -55,7 +55,7 @@ export default function Page() {
       ) : (
         <>
           <img className="h-[200px]" src={topImageSrc} />
-          <h1 className="my-4 text-4xl">Will you be my Valentine?</h1>
+          <h1 className="my-4 text-4xl">Will you come to SC with me?</h1>
           <div className="flex items-center gap-4">
             <button
               className={`mr-4 rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700`}

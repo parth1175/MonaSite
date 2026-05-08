@@ -57,7 +57,7 @@ export default function Page() {
             </button>
             <div className="flex flex-col items-center">
               <img
-                src="/MonaUno.jpg"
+                src="/public/MonaUno.jpg"
                 className="mb-2 rounded"
                 style={{
                   width: `${Math.max(80, noCount * 5 + 80)}px`,

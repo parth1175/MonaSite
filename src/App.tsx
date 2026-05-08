@@ -5,6 +5,18 @@ export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
   const yesButtonSize = noCount * 20 + 16;
+  const monaImages = [
+    "MonaUno.jpg",
+    "MonaDos.jpg",
+    "MonaTres.jpg",
+    "MonaCautro.jpg",
+    "MonaCinco.jpg",
+    "MonaSeis.jpg",
+  ];
+  const topImageSrc =
+    noCount > 0
+      ? `${import.meta.env.BASE_URL}${monaImages[(noCount - 1) % monaImages.length]}`
+      : "https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif";
 
   const handleNoClick = () => {
     setNoCount(noCount + 1);
@@ -16,13 +28,13 @@ export default function Page() {
       "Are you sure?",
       "What if I asked really nicely?",
       "Pretty please",
-      "With a chocolate rice cake on top",
-      "What about a matcha frostie",
+      "Embarassing pics until you say yes....",
+      "What about a date night at rustic river",
       "PLEASE POOKIE",
       "But :*(",
       "I am going to die",
       "Yep im dead",
-      "ok ur talking to nathan's ghost",
+      "ok ur talking to Parth's ghost",
       "please babe",
       ":((((",
       "PRETTY PLEASE",
@@ -42,10 +54,7 @@ export default function Page() {
         </>
       ) : (
         <>
-          <img
-            className="h-[200px]"
-            src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif"
-          />
+          <img className="h-[200px]" src={topImageSrc} />
           <h1 className="my-4 text-4xl">Will you be my Valentine?</h1>
           <div className="flex items-center gap-4">
             <button
@@ -55,23 +64,13 @@ export default function Page() {
             >
               Yes
             </button>
-            <div className="flex flex-col items-center">
-              <img
-                src="/public/MonaUno.jpg"
-                className="mb-2 rounded"
-                style={{
-                  width: `${Math.max(80, noCount * 5 + 80)}px`,
-                  height: "auto"
-                }}
-              />
-              <button
-                onClick={handleNoClick}
-                className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
-                style={{ fontSize: `${Math.max(16, noCount * 2 + 16)}px` }}
-              >
-                {noCount === 0 ? "No" : getNoButtonText()}
-              </button>
-            </div>
+            <button
+              onClick={handleNoClick}
+              className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
+              style={{ fontSize: `${Math.max(16, noCount * 2 + 16)}px` }}
+            >
+              {noCount === 0 ? "No" : getNoButtonText()}
+            </button>
           </div>
         </>
       )}
